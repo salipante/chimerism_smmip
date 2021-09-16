@@ -1,0 +1,1 @@
+config.txt needs to be placed in the directory from which your script is running

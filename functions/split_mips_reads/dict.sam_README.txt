@@ -1,0 +1,8 @@
+This is a file used in the smmips pipeline as the header for SAM files so that they will be handled properly by fgbio tools like CallMolecularConsensusReads 
+It was made by adding these creating dict.sam file like this:
+swish:/mnt/disk4/labs/salipante/databases/hg37 $ java -jar /mnt/disk4/labs/salipante/programs/picard-tools-2.17.2/picard-2.17.2.jar CreateSequenceDictionary OUTPUT=dict.sam R=/mnt/disk4/labs/salipante/databases/hg37/hg37.fa
+
+Then these two lines were added to the bottom:
+@RG   ID:runzzz.1     SM:EndoPos17    LB:lib2 PL:illumina     PU:runzzz.1.CGCTACGATT-TGGTTCTGGT       CN:BI
+@PG   ID:bwa  PN:bwa  VN:0.7.12-r1039 CL:/home/local/AMC/waalkes/salipante_lab/programs/bwa-0.7.12/bwa mem
+
