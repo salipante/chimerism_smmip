@@ -32,7 +32,7 @@
 # name is not used and doesn't need to be changed. 
 
 # command line:
-# nohup [path to script]/smmips_pipeline.sh  [readfile prefix] [directory to write output also where config.txt exists] [path to directory with reads] [path to smmips file in the pipelines/smmips_pipeline/mips_regions.txt] [path to human genome] [version of pipeline COPYNEM] [in which mode to run COUNTONLY] [NOTSTRANDED] [# of cores to use]
+# nohup [path to script]/smmips_pipeline.sh  [readfile prefix] [directory to write output also where config.txt exists] [path to directory with reads] [path to smmips file in the pipelines/smmips_pipeline/mips_regions.txt] [path to human genome] [version of pipeline COPYNUM] [in which mode to run COUNTONLY] [NOTSTRANDED] [# of cores to use]
 # example:
 #  nohup /home/local/code/pipelines/smmips_pipeline/msi_smmips_pipeline.sh  sample1 /home/local/smmips /home/local/sequencing_runs/  /home/local/code/pipelines/smmips_pipeline/cop_num.txt /homr/local/databases/hg37/hg37.fa COPYNUM COUNTONLY NOTSTRANDED 20
 
