@@ -36,5 +36,27 @@
 # example:
 #  nohup /home/local/code/pipelines/smmips_pipeline/msi_smmips_pipeline.sh  sample1 /home/local/smmips /home/local/sequencing_runs/  /home/local/code/pipelines/smmips_pipeline/cop_num.txt /homr/local/databases/hg37/hg37.fa COPYNUM COUNTONLY NOTSTRANDED 20
 
+# you need to run the above pipeline on donor(s), recipient and post transplant DNA.  Once you have done that you use the [sample]_mip_counts.txt 
+# output from all of the above and the additional script (either copy_num2_calculate.pl or copy_num2_2donor_calculate.pl) to estimate the amount
+# of recipient blood indicating possible recurrence
+
+# run the appropriate script like this as described in the scripts:
+
+# $ perl copy_num2_calculate.pl [donor]_mip_counts.txt [patient]_mip_counts.txt [post transplant]_mip_counts.txt output_prefix guess 5 5
+
+# look at the output in the [output_prefix].summary file it looks like this:
+# 0.1     37      1.759221892971664333003453061895496642508
+# and it is
+# [your guess] [mips used] [model value]
+
+# if your model value is greater than 1 then decrease your guess.  If it is less than 1 increase your guess.  Once you have bracketed 1 with close values
+# take a weighted average to compute the final recipient invasion as follows(in excel): =ABS(1-D2)/(ABS(1-D2)+ABS(1-G2))*E2+ABS(1-G2)/(ABS(1-D2)+ABS(1-G2))*B2
+#
+# where the cells represent
+# D2 model value for value greater than one
+# G2 model value for value less than one
+# B2 guess associated with model value greater than one
+# E2 guess associated with model value less than one
+
 # for questions about this pipeline send email to waalkes@uw.edu
 # for citing this code use the same reference as the paper above

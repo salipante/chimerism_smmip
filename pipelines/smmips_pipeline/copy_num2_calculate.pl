@@ -2,9 +2,13 @@
 
 ## Adam Waalkes
 ## Usage:
-## perl .pl <main mipfile> <minor mipfile> <combined mipfile> <% spike in 10 =10%> <min reads for non-zero for genotypes> <min reads for non-zero for sample>
-## walks through a sample file comparing it to the baseline to calculate a cumulative probability
-## that each mip signifies a MSI+ sample
+## perl copy_num2_calculate.pl <donor mipfile> <recipient mipfile> <combined mipfile> <% spike in 10 =10%> <min reads for non-zero for genotypes> <min reads for non-zero for sample>
+##
+## takes a given guess of how much recipient load there is and then models whether the data is consistent with that.  An output of
+## 1 shows the real data is consisent with the guess you run this multiple times until you get an output that is close to but
+## less than 1 and close to but greater than 1.  You can then take a weighted average of those guesses to get what we think is
+## the actual recipient percentage. Relevent output is written to the <sample>.summary file
+##
 ## note that variable names  are defined as follows: main = donor, minor = patient and combo = post transplant
 
 use strict;
